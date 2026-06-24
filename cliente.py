@@ -5,16 +5,16 @@ PORT = 8080
 
 def enviar_comando(comando):
     try:
-        # Criando o socket TCP do cliente
+        
         cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
-        # Conectando ao servidor
+       
         cliente.connect((HOST, PORT))
         
-        # Envia o comando escolhido pelo usuário
+    
         cliente.sendall(comando.encode('utf-8'))
         
-        # Recebe a resposta do servidor
+   
         resposta = cliente.recv(1024).decode('utf-8')
         print(f"\n[SERVIDOR]: {resposta}\n")
         
@@ -22,7 +22,7 @@ def enviar_comando(comando):
     except ConnectionRefusedError:
         print("\n[ERRO]: Não foi possível conectar ao servidor. Ele está rodando?\n")
 
-# Menu de interação
+
 while True:
     print("--- MARKETPLACE VIA SOCKETS (PYTHON) ---")
     print("1. Listar Produtos Disponíveis")
